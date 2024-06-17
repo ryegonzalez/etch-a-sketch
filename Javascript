@@ -1,0 +1,19 @@
+const container = document.getElementById('container');
+
+function sketchGrid(rows, cols) {
+    container.style.setProperty('--grid-rows', rows);
+    container.style.setProperty('--grid-cols', cols);
+    for (c = 0; c < (rows * cols); c++) {
+        let cell = document.createElement('div');
+        container.appendChild(cell).className = "gridItem";
+        cell.addEventListener('mouseover', () => {
+            cell.style.backgroundColor = 'green';
+            const button = document.querySelector('button');
+            button.addEventListener('click', () => {
+                cell.style.backgroundColor = 'white';
+            });
+        });
+    }
+}
+
+sketchGrid(16, 16)
